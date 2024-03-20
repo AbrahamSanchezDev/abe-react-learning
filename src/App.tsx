@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import CustomButton from "./components/CustomButton/CustomButton";
+import Tablero from "./components/Tablero/Tablero";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
@@ -9,15 +10,15 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <CustomButton texto="Custom Text" />
+        <Navbar/>
+        
+        <section>
+
+        </section>
+
+        <section>
+          <Tablero/>
+        </section>
       </header>
     </div>
   );
