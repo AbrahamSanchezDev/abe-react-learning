@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./CustomButton.css";
 
 interface Valores {
-  texto: string,
-  posicion:number
+  texto: string;
+  posicion: number;
 }
+let movimientos: number[] =[]; //movimientos en todos
+let tableroData: string[] = ['','','',
+                             '','','',
+                             '','','']; //conservar el estado
 
-function CustomButton({ texto ,posicion}: Valores) {
-  const [movimientos, setMovimientos] = useState([]);
+function CustomButton({ texto, posicion }: Valores) {
   const [contador, setContador] = useState(0);
   const [estadoGato, setEstadoGato] = useState("-");
 
@@ -17,26 +20,26 @@ function CustomButton({ texto ,posicion}: Valores) {
     });
   };
 
-  const funciones = (n:number) => {
-    cambiarStado();
+  const funciones = (n: number) => {
+    cambiarStado(n);
     agregarMovimiento(n);
-
   };
-  const agregarMovimiento = (n:number)=>{
-    setMovimientos(estado =>{
-      return estado[n];
-    });
-  }
-  const cambiarStado = () => {
+  const agregarMovimiento = (n: number) => {
+    movimientos.push(n);
+    console.log(movimientos);
+  };
+  const cambiarStado = (posicion:number) => {
     setEstadoGato((estado) => {
-      if (estado === "-") return "X";
-      if (estado === "X") return "O";
-      return "-";
+      const nuevoEstado = 
+      estado === "-" ? "X":
+      estado === "X" ? "O": "-";
+      tableroData[posicion] = nuevoEstado;
+      return nuevoEstado;
     });
   };
   return (
     <>
-      <div onClick={()=>funciones(posicion)} className="b0 b1">
+      <div onClick={() => funciones(posicion)} className="b0 b1">
         {estadoGato}
       </div>
     </>
