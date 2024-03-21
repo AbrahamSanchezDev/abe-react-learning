@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./CustomButton.css";
 
+import { calculateWinner } from "../calculateWinner";
+
 interface Valores {
   texto: string;
   posicion: number;
