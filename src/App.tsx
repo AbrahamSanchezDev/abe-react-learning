@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Tablero from "./components/Tablero/Tablero";
 import Navbar from "./components/navbar/Navbar";
+import ChatWebSocket from "./components/ChatWebSocket/ChatWebSocket";
 
 function App() {
   return (
@@ -10,15 +11,18 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
-        <Navbar/>
+        {/* <Navbar/>
         
         <section>
-
+         
         </section>
 
         <section>
           <Tablero/>
-        </section>
+        </section> */}
+
+         <ChatWebSocket/>
+         
       </header>
     </div>
   );
